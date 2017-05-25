@@ -54,6 +54,7 @@ resource sakuracloud_server "myserver" {
 | `icon_id`       | -   | アイコンID         | - | 文字列| - |
 | `description` | - | 説明 | - | 文字列 | - |
 | `cdrom_id` | - | CDROM(ISOイメージ)ID | - | 文字列 | - |
+| `private_host_id` | - | 専有ホストID | - | 文字列 | 専有ホストは東京第１ゾーン(tk1a)でのみ利用可能 |
 | `ipaddress`| - | 基本NIC:IPアドレス | - | 文字列 | [注1](#注1) |
 | `gateway`  | - | 基本NIC:ゲートウェイ | - | 文字列 | [注1](#注1) |
 | `nw_mask_len` | - | 基本NIC:サブネットマスク長 | - | 文字列 | [注1](#注1) |
@@ -72,6 +73,18 @@ resource sakuracloud_server "myserver" {
 |属性名                    | 名称                     | 補足                                        |
 |-------------------------|-------------------------|--------------------------------------------|
 | `id`                    | ID                      | -                                          |
+| `name`                  | サーバ名                | -                                          |
+| `disks`                 | ディスクID                | -                                          |
+| `core`                  | CPUコア数                 | -                                         |
+| `memory`                | メモリ(GB単位)            | -                                          |
+| `nic`                   | 基本NIC                  | -                                         |
+| `additional_nics`       | 追加NIC                  | -                                         |
+| `packet_filter_ids`     | パケットフィルタID         | -                                         |
+| `cdrom_id`              | CDROM(ISOイメージ)ID         | -                                         |
+| `private_host_id`       | 専有ホストID              | -                                         |
+| `description`           | 説明                     | -                                         |
+| `tags`                  | タグ                     | -                                         |
+| `zone`                  | ゾーン                    | -                                         |
 | `macaddresses`          | MACアドレス               | MACアドレスのリスト(NICの個数分のリスト)        |
 | `dns_servers`           | 基本NIC:DNSサーバ        | eth0の属するセグメントの推奨ネームサーバのリスト|
 | `nw_address`            | 基本NIC:ネットワークアドレス | eth0のIPアドレスのネットワークアドレス          |
