@@ -58,6 +58,16 @@ func dataSourceSakuraCloudServer() *schema.Resource {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
+			"private_host_id": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+			"additional_interfaces": {
+				Type:       schema.TypeList,
+				Computed:   true,
+				Elem:       &schema.Schema{Type: schema.TypeString},
+				Deprecated: "Use field 'additional_nics' instead",
+			},
 			"additional_nics": {
 				Type:     schema.TypeList,
 				Computed: true,

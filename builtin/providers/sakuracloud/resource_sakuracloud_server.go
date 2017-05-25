@@ -65,6 +65,19 @@ func resourceSakuraCloudServer() *schema.Resource {
 				Computed:     true,
 				ValidateFunc: validateSakuracloudIDType,
 			},
+			"private_host_id": {
+				Type:         schema.TypeString,
+				Optional:     true,
+				ValidateFunc: validateSakuracloudIDType,
+			},
+			"additional_interfaces": {
+				Type:          schema.TypeList,
+				Optional:      true,
+				MaxItems:      3,
+				Elem:          &schema.Schema{Type: schema.TypeString},
+				ConflictsWith: []string{"additional_nics"},
+				Deprecated:    "Use field 'additional_nics' instead",
+			},
 			"additional_nics": {
 				Type:     schema.TypeList,
 				Optional: true,
@@ -189,6 +202,11 @@ func resourceSakuraCloudServerCreate(d *schema.ResourceData, meta interface{}) e
 		if rawTags != nil {
 			opts.Tags = expandStringList(rawTags.([]interface{}))
 		}
+	}
+
+	if rawPrivateHostID, ok := d.GetOk("private_host_id"); ok {
+		privateHostID := rawPrivateHostID.(string)
+		opts.SetPrivateHostByID(toSakuraCloudID(privateHostID))
 	}
 
 	//server, err := client.Server.Create(opts)
@@ -325,8 +343,9 @@ func resourceSakuraCloudServerUpdate(d *schema.ResourceData, meta interface{}) e
 		isNeedRestart = true
 	}
 
-	if d.HasChange("disks") || d.HasChange("nic") || d.HasChange("additional_nics") || d.HasChange("interface_driver") ||
-		d.HasChange("ipaddress") || d.HasChange("gateway") || d.HasChange("nw_mask_len") {
+	if d.HasChange("disks") || d.HasChange("nic") || d.HasChange("additional_nics") ||
+		d.HasChange("ipaddress") || d.HasChange("gateway") || d.HasChange("nw_mask_len") ||
+		d.HasChange("private_host_id") {
 		isNeedRestart = true
 	}
 
@@ -531,6 +550,19 @@ func resourceSakuraCloudServerUpdate(d *schema.ResourceData, meta interface{}) e
 		}
 	}
 
+	if d.HasChange("private_host_id") {
+		if rawPrivateHostID, ok := d.GetOk("private_host_id"); ok {
+			privateHostID := rawPrivateHostID.(string)
+			if privateHostID == "" {
+				server.ClearPrivateHost()
+			} else {
+				server.SetPrivateHostByID(toSakuraCloudID(privateHostID))
+			}
+		} else {
+			server.ClearPrivateHost()
+		}
+	}
+
 	server, err = client.Server.Update(toSakuraCloudID(d.Id()), server)
 	if err != nil {
 		return fmt.Errorf("Error updating SakuraCloud Server resource: %s", err)
@@ -664,7 +696,11 @@ func setServerResourceData(d *schema.ResourceData, client *api.Client, data *sac
 		d.Set("cdrom_id", data.Instance.CDROM.GetStrID())
 	}
 
-	d.Set("interface_driver", string(data.GetInterfaceDriverString()))
+	if data.PrivateHost != nil && data.PrivateHost.ID > 0 {
+		d.Set("private_host_id", data.PrivateHost.GetStrID())
+	} else {
+		d.Set("interface_driver", string(data.GetInterfaceDriverString()))
+	}
 
 	hasSharedInterface := len(data.Interfaces) > 0 && data.Interfaces[0].Switch != nil
 	if hasSharedInterface {
