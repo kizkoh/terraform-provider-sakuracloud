@@ -4,7 +4,11 @@
     
     <url>
      <loc>https://sacloud.github.io/terraform-provider-sakuracloud/</loc>
+<<<<<<< HEAD
      <lastmod>2017-10-12</lastmod>
+=======
+     <lastmod>2017-05-25</lastmod>
+>>>>>>> Re-generate docs
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +17,21 @@
         
     <url>
      <loc>https://sacloud.github.io/terraform-provider-sakuracloud/installation/</loc>
+<<<<<<< HEAD
      <lastmod>2017-10-12</lastmod>
+=======
+     <lastmod>2017-05-25</lastmod>
+>>>>>>> Re-generate docs
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://sacloud.github.io/terraform-provider-sakuracloud/articles/</loc>
+<<<<<<< HEAD
      <lastmod>2017-10-12</lastmod>
+=======
+     <lastmod>2017-05-25</lastmod>
+>>>>>>> Re-generate docs
      <changefreq>daily</changefreq>
     </url>
         

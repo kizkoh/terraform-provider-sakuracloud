@@ -275,6 +275,7 @@
 
         
     </ul>
+<<<<<<< HEAD
 
         
             
@@ -289,6 +290,77 @@
     </li>
 
         
+=======
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../disk/">ディスク</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../switch/">スイッチ</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../internet/">ルータ</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../subnet/">サブネット</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../packet_filter/">パケットフィルタ</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../bridge/">ブリッジ</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../load_balancer/">ロードバランサ</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../vpc_router/">VPCルータ</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../database/">データベース</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../note/">スタートアップスクリプト</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ssh_key/">公開鍵</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../ssh_key_gen/">公開鍵(生成)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../private_host/">専有ホスト</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../dns/">DNS</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../gslb/">GSLB</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../simple_monitor/">シンプル監視</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../auto_backup/">自動バックアップ</a>
+                </li>
+>>>>>>> Re-generate docs
     </ul>
 
         
@@ -461,6 +533,7 @@
 <td>NICに適用するパケットフィルタのIDをリストで指定する。リストの先頭からeth0,eth1の順で適用される</td>
 </tr>
 <tr>
+<<<<<<< HEAD
 <td><code>icon_id</code></td>
 <td align="center">-</td>
 <td>アイコンID</td>
@@ -470,19 +543,22 @@
 </tr>
 <tr>
 <td><code>description</code></td>
-<td align="center">-</td>
-<td>説明</td>
-<td align="center">-</td>
-<td>文字列</td>
-<td>-</td>
-</tr>
-<tr>
+=======
 <td><code>cdrom_id</code></td>
+>>>>>>> Re-generate docs
 <td align="center">-</td>
 <td>CDROM(ISOイメージ)ID</td>
 <td align="center">-</td>
 <td>文字列</td>
 <td>-</td>
+</tr>
+<tr>
+<td><code>private_host_id</code></td>
+<td align="center">-</td>
+<td>専有ホストID</td>
+<td align="center">-</td>
+<td>文字列</td>
+<td>専有ホストは東京第１ゾーン(tk1a)でのみ利用可能</td>
 </tr>
 <tr>
 <td><code>ipaddress</code></td>
@@ -507,6 +583,14 @@
 <td align="center">-</td>
 <td>文字列</td>
 <td><a href="#注1">注1</a></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td align="center">-</td>
+<td>説明</td>
+<td align="center">-</td>
+<td>文字列</td>
+<td>-</td>
 </tr>
 <tr>
 <td><code>tags</code></td>
@@ -554,6 +638,69 @@
 <td>-</td>
 </tr>
 <tr>
+<<<<<<< HEAD
+=======
+<td><code>name</code></td>
+<td>サーバ名</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>disks</code></td>
+<td>ディスクID</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>core</code></td>
+<td>CPUコア数</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>memory</code></td>
+<td>メモリ(GB単位)</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>nic</code></td>
+<td>基本NIC</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>additional_nics</code></td>
+<td>追加NIC</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>packet_filter_ids</code></td>
+<td>パケットフィルタID</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>cdrom_id</code></td>
+<td>CDROM(ISOイメージ)ID</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>private_host_id</code></td>
+<td>専有ホストID</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>説明</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>タグ</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>zone</code></td>
+<td>ゾーン</td>
+<td>-</td>
+</tr>
+<tr>
+>>>>>>> Re-generate docs
 <td><code>macaddresses</code></td>
 <td>MACアドレス</td>
 <td>MACアドレスのリスト(NICの個数分のリスト)</td>
