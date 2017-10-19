@@ -3,7 +3,7 @@ package main
 import (
 	//"github.com/hashicorp/terraform/builtin/providers/sakuracloud"
 	"github.com/hashicorp/terraform/plugin"
-	"github.com/sacloud/terraform-provider-sakuracloud/builtin/providers/sakuracloud"
+	"github.com/kizkoh/terraform-provider-sakuracloud/builtin/providers/sakuracloud"
 )
 
 func main() {
